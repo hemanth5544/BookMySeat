@@ -1,0 +1,15 @@
+{
+  "name": "bookmyseat",
+  "private": true,
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "db:seed": "npm run db:seed -w server"
+  },
+  "devDependencies": {
+    "turbo": "^2.3.3"
+  },
+  "packageManager": "npm@10.9.2",
+  "workspaces": ["apps/*"]
+}
