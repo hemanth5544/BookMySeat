@@ -1,5 +1,7 @@
 # BookMySeat
 
+**Write-up:** [Safe seat booking narrative](docs/blog-safe-seat-booking.md) (concurrency, row locks, and how this repo demonstrates both paths).
+
 **Problem :** Seat booking in high race condition using Hybird apporach of database locking
 
 
