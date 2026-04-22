@@ -5,6 +5,8 @@
     "build": "turbo build",
     "start": "turbo start",
     "dev": "turbo dev",
+    "dev:server": "turbo dev --filter=server",
+    "dev:web": "turbo dev --filter=web",
     "lint": "turbo lint",
     "db:seed": "npm run db:seed -w server"
   },
