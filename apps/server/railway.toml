@@ -1,0 +1,8 @@
+[build]
+builder = "NIXPACKS"
+buildCommand = "curl -fsSL https://bun.sh/install | bash && export PATH=$HOME/.bun/bin:$PATH && npm install && npm run build -w server"
+
+[deploy]
+startCommand = "cd apps/server && export PATH=$HOME/.bun/bin:$PATH && SERVER_PORT=$PORT bun run src/index.ts"
+healthcheckPath = "/health"
+restartPolicyType = "ON_FAILURE"

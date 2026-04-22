@@ -1,0 +1,7 @@
+[build]
+builder = "NIXPACKS"
+buildCommand = "npm install && npm run build -w web"
+
+[deploy]
+startCommand = "cd apps/web && npm run start -- -p $PORT"
+restartPolicyType = "ON_FAILURE"
