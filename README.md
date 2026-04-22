@@ -55,3 +55,32 @@ npm run dev
 
 - `apps/server` — Bun, Elysia, Sequelize, Postgres
 - `apps/web` — Next.js App Router, Tailwind, Radix/shadcn-style UI, Framer Motion, Sonner toasts
+
+## Railway deploy
+
+This repo includes per-service configs:
+
+- `apps/server/railway.toml`
+- `apps/web/railway.toml`
+
+Create two Railway services from the same repo:
+
+1. **API service** (root directory `.`) using `apps/server/railway.toml`
+2. **Web service** (root directory `.`) using `apps/web/railway.toml`
+
+Then set these variables:
+
+### API service variables
+
+- `DB_HOST=${{Postgres.PGHOST}}`
+- `DB_PORT=${{Postgres.PGPORT}}`
+- `DB_NAME=${{Postgres.PGDATABASE}}`
+- `DB_USER=${{Postgres.PGUSER}}`
+- `DB_PASSWORD=${{Postgres.PGPASSWORD}}`
+- `SERVER_PORT=${{PORT}}`
+
+### Web service variables
+
+- `NEXT_PUBLIC_API_URL=https://<your-api-service-domain>`
+
+Use the Railway public domain generated for the API service.
