@@ -5,7 +5,7 @@ import { sequelize } from "./db";
 import { bookSafe, bookUnsafe } from "./book";
 import { Booking, Seat, Show } from "./models/index";
 
-const port = Number(process.env.SERVER_PORT ?? 3001);
+const port = Number(process.env.SERVER_PORT ?? process.env.PORT ?? 3001);
 
 await sequelize.authenticate().catch((e) => {
   console.error("Postgres connection failed:", e.message);
@@ -157,8 +157,8 @@ const app = new Elysia()
       return { ok: true };
     }
   )
-  .listen(port);
+  .listen({ port, hostname: "0.0.0.0" });
 
-console.log(`BookMySeat API at http://localhost:${port}`);
+console.log(`BookMySeat API listening on 0.0.0.0:${port}`);
 
 export type App = typeof app;
